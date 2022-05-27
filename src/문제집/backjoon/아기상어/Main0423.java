@@ -41,8 +41,8 @@ public class Main0423 {
                 map[i][j] = n;
             }
         }
-        Comparator<int[]> comp = (o1, o2) -> {
 
+        Comparator<int[]> comp = (o1, o2) -> {
             int c1 = o1[2];
             int c2 = o2[2];
 

@@ -26,7 +26,6 @@ public class Main {
 
         dp = new int[N];
 
-
 //        bottomUp();
 
         dp[0] = arr[0];

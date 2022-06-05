@@ -35,10 +35,7 @@ public class MainV3 {
             }
             boolean dir = true;
             if(N==0){
-                sb.append("error");
-                if(t!=T-1){
-                    sb.append("\n");
-                }
+                sb.append("error").append("\n");
                 continue;
             }
             for(int i=0;i<rule.length();i++){
@@ -47,10 +44,7 @@ public class MainV3 {
                     dir = !dir;
                 }else{
                     if(deque.isEmpty()){
-                        sb.append("error");
-                        if(t!=T-1){
-                            sb.append("\n");
-                        }
+                        sb.append("error").append("\n");
                         continue out;
                     }else{
                         if(dir){
@@ -72,10 +66,7 @@ public class MainV3 {
                     sb.append(",");
                 }
             }
-            sb.append("]");
-            if(t!=T-1) {
-                sb.append("\n");
-            }
+            sb.append("]").append("\n");
         }
         System.out.println(sb);
     }

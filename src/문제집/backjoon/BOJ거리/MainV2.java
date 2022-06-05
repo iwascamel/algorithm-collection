@@ -8,6 +8,7 @@ import java.util.*;
 
 /**
  * date: 22.06.05
+ * 참고: https://simju9397.tistory.com/28
  */
 
 public class MainV2 {

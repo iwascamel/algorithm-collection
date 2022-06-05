@@ -7,14 +7,18 @@ public class Main {
     static int T;
     static int N;
     static boolean[] v;
-    static class Person{
-        int idx;
+    static class Person implements Comparable<Person>{
         int s1;
         int s2;
 
         public Person(int s1,int s2){
             this.s1 = s1;
             this.s2 = s2;
+        }
+
+        @Override
+        public int compareTo(Person o) {
+            return Integer.compare(this.s1, o.s1);
         }
     }
     public static void main(String[] args) throws NumberFormatException, IOException {
@@ -23,19 +27,30 @@ public class Main {
 
         T = Integer.parseInt(br.readLine());
 
-        for(int t=0;t<=T;t++){
+        for(int t=0;t<T;t++){
             N = Integer.parseInt(br.readLine());
-            Person[] persons = new Person[N];
+            PriorityQueue<Person> pq = new PriorityQueue<>();
             for(int i=0;i<N;i++){
                 StringTokenizer st = new StringTokenizer(br.readLine());
                 int s1 = Integer.parseInt(st.nextToken());
                 int s2 = Integer.parseInt(st.nextToken());
-                persons[i] = new Person(s1, s2);
+                pq.offer(new Person(s1, s2));
             }
-
-            v = new boolean[N];
             
-
+            int cnt = 1;
+            Person poll = pq.poll();
+            int min = poll.s2;
+            
+            while(!pq.isEmpty()){
+                Person p = pq.poll();
+                int s2 = p.s2;
+                
+                if(s2 < min){
+                    cnt++;
+                    min = s2;
+                }
+            }
+            System.out.println(cnt);
         }
     }
 }

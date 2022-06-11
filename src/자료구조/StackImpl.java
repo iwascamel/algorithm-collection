@@ -4,13 +4,6 @@ package 자료구조;
  * date: 22.06.06
  */
 
-class Node{
-    int data;
-    Node next;
-    Node(int data){
-        this.data = data;
-    }
-}
 
 public class StackImpl {
     Node head;

@@ -4,7 +4,7 @@ package Java공부;
  * date: 22.06.06
  */
 
-public class ThreadImpl extends Thread{
+public class ThreadImplRunnable implements Runnable{
 
     @Override
     public void run(){
@@ -16,11 +16,10 @@ public class ThreadImpl extends Thread{
             }
         }
     }
-    public static void main(String[] args) {
-        ThreadImpl threadImpl1 = new ThreadImpl();
-        ThreadImpl threadImpl2 = new ThreadImpl();
 
-        threadImpl1.start();
-        threadImpl2.start();
+    public static void main(String[] args) {
+        ThreadImplRunnable threadImplRunnable = new ThreadImplRunnable();
+        Thread myThread = new Thread(threadImplRunnable);
+        myThread.start();
     }
 }

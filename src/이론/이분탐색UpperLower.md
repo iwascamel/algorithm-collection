@@ -47,3 +47,9 @@ else
 ### 3 실습코드
 
 > * [BinaryUpperLower](./BinaryUpperLowerBound.java)
+
+<hr/>
+
+## REF
+
+* [st-lab 블로그](https://st-lab.tistory.com/267)

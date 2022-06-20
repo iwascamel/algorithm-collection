@@ -5,5 +5,5 @@
   
 ## 이론 및 자료구조
 
-* [readme](./src/Java%EA%B3%B5%EB%B6%80/readmd.MD)
 * [이론](./src/이론/readme.MD)
+* [자료구조](./src/Java%EA%B3%B5%EB%B6%80/readmd.MD)

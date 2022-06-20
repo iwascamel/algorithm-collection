@@ -7,30 +7,27 @@ public class BinaryUpperLowerBound {
         arr = new int[]{2,3,3,3,3,4,5};
         N = arr.length;
         int target = 3;
-        System.out.println(upperBinary(target));
-        // System.out.println(lowerBinary(target));
+        System.out.println(upperBound(target));
+        System.out.println(lowerBound(target));
+        // System.out.println(lowerBound(target));
     }
 
-    public static int upperBinary(int target){
+    public static int upperBound(int target){
         int start = 0;
         int end = N-1;
-        int ans = 0;
         while(start < end){
             int mid = (start+end)/2;
-
-            if(arr[mid] >= target){
-                start = mid+1;
-                start = ans;
-            }else{
+            if(arr[mid] > target){
                 end = mid;
+            }else{
+                start = mid+1;
             }
         }
-        return ans;
+        return end;
     }
-    public static int lowerBinary(int target){
+    public static int lowerBound(int target){
         int start = 0;
         int end = N-1;
-        int ans = 0;
         while(start < end){
             int mid = (start+end)/2;
 
@@ -38,9 +35,8 @@ public class BinaryUpperLowerBound {
                 end = mid;
             }else{
                 start = mid+1;
-                start = ans;
             }
         }
-        return ans;
+        return end;
     }
 }

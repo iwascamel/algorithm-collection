@@ -1,4 +1,4 @@
-package 이론;
+package 이론.이분탐색;
 
 public class BinaryUpperLowerBound {
     static int N;

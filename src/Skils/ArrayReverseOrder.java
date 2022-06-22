@@ -1,4 +1,4 @@
-package Java공부;
+package Skils;
 
 import java.util.Arrays;
 import java.util.Collections;

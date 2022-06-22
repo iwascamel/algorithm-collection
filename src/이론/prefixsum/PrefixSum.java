@@ -1,4 +1,4 @@
-package 이론;
+package 이론.prefixsum;
 
 import java.util.Arrays;
 

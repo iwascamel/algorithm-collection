@@ -16,7 +16,10 @@ arr = {2,3,3,3,3,4,5}
 
 ### 2-1) start+1, end-1?
 
-* 어떤 거를 해줘도 상관없으나, end를 기준으로 할거면 `start+1`을 해줘야 한다.
+* 어떤 거를 해줘도 상관없으나, `start+1`을 해주는 게 계산상 더 좋다.
+  * `end-1` 을 해주면 나중에 +1을 더 해줘서 return 해줘야 한다.
+
+> TIP : `start+1`을 해줘서 `end`로 넘어간다고 생각해주면 좀 더 쉽게 생각할 수 있다.
 
 ### 2-2) = 방향에 따라 upper, lower
 
@@ -29,8 +32,27 @@ arr = {2,3,3,3,3,4,5}
 * UpperBound
 
 ```java
+if arr[mid] > target:
+    end = mid
+else
+    start = mid+1
+```
+
+* LowerBound
+
+```java
 if arr[mid] >= target:
     end = mid
 else
     start = mid+1
 ```
+
+### 3 실습코드
+
+> * [BinaryUpperLower](./BinaryUpperLowerBound.java)
+
+<hr/>
+
+## REF
+
+* [st-lab 블로그](https://st-lab.tistory.com/267)

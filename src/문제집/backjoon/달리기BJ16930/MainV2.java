@@ -5,13 +5,10 @@ import java.util.*;
 
 /**
  * date: 22.06.26
- * memo: 첫번째 시도 -> 문제 이해를 잘못해서 그냥 stack, time 변수 갖고 있는 객체해서 dfs 돌리면 되는 거 아닌가? 생각
- * memo: 두번째 시도 -> 
- * 1. K범위 안에 있는 값들을 전부 넣어줌 
- * 2. int[][] visited = Integer.MAX_VALUE를 선언해서 해당 값보다 작은 값들이 들어올 때만 들어오게 방문 체크
+ * memo: d,k 자리를 바꿔봤는데, 여전히 시간초과
  */
 
-public class Main {
+public class MainV2 {
     static int N,M,K;
     static char[][] map;
 
@@ -76,16 +73,13 @@ public class Main {
                 return ;
             }
 
-            boolean[] isStop = new boolean[4];
-            for(int k=1;k<=K;k++){
-                for(int d=0;d<4;d++){
+            out: for(int d=0;d<4;d++){
+                for(int k=1;k<=K;k++){
                     int nx = x + dx[d] * k;
                     int ny = y + dy[d] * k;
 
-                    if(isStop[d]) continue;
                     if(isOut(nx, ny) || map[nx][ny] == '#'){
-                        isStop[d] = true;
-                        continue;
+                        continue out;
                     }
                     if(time+1 >= visisted[nx][ny]) continue;
                     

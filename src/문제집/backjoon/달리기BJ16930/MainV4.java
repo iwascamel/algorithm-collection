@@ -1,14 +1,14 @@
 package 문제집.backjoon.달리기BJ16930;
 
+import java.beans.Visibility;
 import java.io.*;
 import java.util.*;
 
 /**
  * date: 22.06.26
- * memo: d,k 자리를 바꿔봤는데, 여전히 시간초과
  */
 
-public class MainV2 {
+public class MainV4 {
     static int N,M,K;
     static char[][] map;
 
@@ -73,13 +73,13 @@ public class MainV2 {
                 return ;
             }
 
-            out: for(int d=0;d<4;d++){
-                for(int k=1;k<=K;k++){
+            for(int k=1;k<=K;k++){
+                for(int d=0;d<4;d++){
                     int nx = x + dx[d] * k;
                     int ny = y + dy[d] * k;
-
+    
                     if(isOut(nx, ny) || map[nx][ny] == '#'){
-                        continue out;
+                        continue ;
                     }
                     if(time+1 >= visisted[nx][ny]) continue;
                     
@@ -88,6 +88,7 @@ public class MainV2 {
                 }
             }
         }
+        print(visisted);
     }
     private static void print(int[][] a) {
         for(int i=0;i<N;i++){

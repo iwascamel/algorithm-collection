@@ -76,15 +76,12 @@ public class Main {
                 return ;
             }
 
-            boolean[] isStop = new boolean[4];
             for(int k=1;k<=K;k++){
                 for(int d=0;d<4;d++){
                     int nx = x + dx[d] * k;
                     int ny = y + dy[d] * k;
 
-                    if(isStop[d]) continue;
                     if(isOut(nx, ny) || map[nx][ny] == '#'){
-                        isStop[d] = true;
                         continue;
                     }
                     if(time+1 >= visisted[nx][ny]) continue;
@@ -94,6 +91,7 @@ public class Main {
                 }
             }
         }
+        print(visisted);
     }
     private static void print(int[][] a) {
         for(int i=0;i<N;i++){

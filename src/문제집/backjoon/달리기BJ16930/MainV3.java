@@ -8,7 +8,7 @@ import java.util.*;
  * memo: d,k 자리를 바꿔봤는데, 여전히 시간초과
  */
 
-public class MainV2 {
+public class MainV3 {
     static int N,M,K;
     static char[][] map;
 
@@ -69,7 +69,7 @@ public class MainV2 {
             int time = poll[2];
 
             if(x == ex && y == ey){
-                res = time;
+                res = Math.min(res,time);
                 return ;
             }
 
@@ -81,7 +81,7 @@ public class MainV2 {
                     if(isOut(nx, ny) || map[nx][ny] == '#'){
                         continue out;
                     }
-                    if(time+1 >= visisted[nx][ny]) continue;
+                    if(time+1 > visisted[nx][ny]) break;
                     
                     queue.offer(new int[]{nx,ny,time+1});
                     visisted[nx][ny] = time+1;

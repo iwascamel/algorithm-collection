@@ -7,7 +7,7 @@ public class Main {
     static int N;
     static int[][] map;
     public static void main(String[] args) throws IOException {
-        System.setIn(new FileInputStream("./src/backjoon/스도쿠/input.txt"));
+        System.setIn(new FileInputStream("./src/문제집/backjoon/스도쿠/input.txt"));
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         N = 9;

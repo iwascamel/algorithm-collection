@@ -5,3 +5,4 @@
 * [prefixSum](./prefixsum/prefixsum.md)
 * [Dijkstra](./그래프이론/dijkstra.md)
 * [kruskal](./그래프이론/kruskal.md)
+* [prim](./%EA%B7%B8%EB%9E%98%ED%94%84%EC%9D%B4%EB%A1%A0/prim.md)

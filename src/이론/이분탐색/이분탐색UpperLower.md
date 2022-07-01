@@ -27,7 +27,7 @@ arr = {2,3,3,3,3,4,5}
   * 그래서 `arr[mid]<=target` 이면 `start=mid+1`을 해주어야 한다.
 * 반대로 하한은 target과 같거나 크면 내려가야 한다.
 
-### 2-3) 코드
+## 3) 코드
 
 * UpperBound
 
@@ -47,7 +47,13 @@ else
     start = mid+1
 ```
 
-### 3 실습코드
+### 3-1) upperbound , lowerbound의 결과
+
+* 해당하는 숫자가 없는 경우
+	* 만약 `int[] arr = {3,4,5,7,8}` 이고 `target = 6` 이라면 결과값은 `lowerBound` , `upperBound` 둘다 큰 값에서 걸리는 위치인 3이 나온다 ( 7의 위치 )
+* ![[Pasted image 20220701175447.png]]
+
+## 4 실습코드
 
 > * [BinaryUpperLower](./BinaryUpperLowerBound.java)
 

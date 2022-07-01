@@ -12,7 +12,7 @@ import java.util.StringTokenizer;
  * memo: 문제 잘 못 읽음. 나는 존재하는 개수를 찾으라는줄
  */
 
-public class Main {
+public class MainV2 {
     static int N;
     static int[] arr;
     public static void main(String[] args) throws IOException {
@@ -34,49 +34,36 @@ public class Main {
         int mm = Integer.parseInt(br.readLine());
 
         st = new StringTokenizer(br.readLine());
-
+        StringBuffer sb = new StringBuffer();
         for(int i=0;i<mm;i++){
             int num = Integer.parseInt(st.nextToken());
-            int low = getLower(num);
-            int up = getUpper(num);
-
-            int res = up-low;
-            if(up == N-1 && arr[N-1] == num){
-                res+=1;
+            
+            int res = getBinary(num);
+            if(res>=0){
+                sb.append(1).append("\n");
+            }else{
+                sb.append(0).append("\n");
             }
-            System.out.println(res);
         }
+        sb.setLength(sb.length()-1);
+        System.out.println(sb);
     }
-
-    private static int getUpper(int num) {
+    private static int getBinary(int num) {
         int start = 0;
         int end = N-1;
 
-        while(start<end){
+        while(start<=end){
             int mid = (start+end)/2;
-            
-            if(arr[mid] > num){
-                end = mid; 
+
+            if(arr[mid] == num){
+                return mid;
+            }else if(arr[mid] > num){
+                end = mid-1;
             }else{
                 start = mid+1;
             }
         }
-        return end;
-    }
 
-    private static int getLower(int num) {
-        int start = 0;
-        int end = N-1;
-
-        while(start<end){
-            int mid = (start+end)/2;
-            
-            if(arr[mid] >= num){
-                end = mid; 
-            }else{
-                start = mid+1;
-            }
-        }
-        return end;
+        return -1;
     }
 }

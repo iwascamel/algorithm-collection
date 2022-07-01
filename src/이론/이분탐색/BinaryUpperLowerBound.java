@@ -4,10 +4,9 @@ public class BinaryUpperLowerBound {
     static int N;
     static int[] arr;
     public static void main(String[] args) {
-        // arr = new int[]{2,3,3,3,3,4,5};
-        arr = new int[]{3,4,5,7,8};
+        arr = new int[]{4,1,5,2,3};
         N = arr.length;
-        int target = 6;
+        int target = 3;
         System.out.println(upperBound(target));
         System.out.println(lowerBound(target));
         // System.out.println(lowerBound(target));

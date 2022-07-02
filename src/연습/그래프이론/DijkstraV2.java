@@ -7,6 +7,7 @@ import java.io.InputStreamReader;
 
 /**
  * date: 22.07.01
+ * memo: 두번째 연습
  */
 
  import java.util.*;

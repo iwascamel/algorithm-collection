@@ -8,14 +8,13 @@ import java.util.Arrays;
 import java.util.StringTokenizer;
 
 /**
- * date: 22.07.01
+ * date: 22.07.01~04
  */
 
 public class Main {
     static int n,k;
-    static int[] arr;
     static int[] dp;
-    static int[] coins = new int[]{1,2,5};
+    static int[] coins;
     public static void main(String[] args) throws NumberFormatException, IOException {
         System.setIn(new FileInputStream("./src/문제집/backjoon/동전1BJ2293/input.txt"));
 
@@ -24,15 +23,15 @@ public class Main {
         StringTokenizer st = new StringTokenizer(br.readLine());
         n = Integer.parseInt(st.nextToken());
         k = Integer.parseInt(st.nextToken());
-        arr = new int[n];
+        coins = new int[n];
         
         for(int i=0;i<n;i++){
-            arr[i] = Integer.parseInt(br.readLine());    
+            coins[i] = Integer.parseInt(br.readLine());    
         }
         dp = new int[k+1];
 
         dp[0] = 1;
-        for(int j=0;j<3;j++){
+        for(int j=0;j<n;j++){
             for(int i=1;i<=k;i++){
                 if(i - coins[j] >= 0){
                     dp[i] += dp[i-coins[j]];

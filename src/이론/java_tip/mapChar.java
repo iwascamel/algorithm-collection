@@ -1,4 +1,4 @@
-package 이론.java코딩시유의점;
+package 이론.java_tip;
 
 /*
  * date: 22.07.02

@@ -19,6 +19,18 @@ import java.util.StringTokenizer;
   * 2. 재귀호출로 left, right 최대값 반환
   */
 
+/*
+memo: 22.07.12
+그리디로 풀었는데, 반례 존재
+
+    left    right
+   l1  l2  r1   r2
+
+만약 left > right 여서 left 골랐는데, r1이 100000이고 left 10 right 8 l1 3 l2 4 이렇다면 right을 골라야 한다.
+즉, 단순 재귀가 아니라 dp를 이용해서 풀어야 한다.
+
+ */
+
 public class Main {
 
     static class Node{
@@ -47,6 +59,7 @@ public class Main {
         Queue<Node> queue = new LinkedList<>();
         Node node = new Node(initValue);
         queue.offer(node);
+
         for(int i=1;i<N;i++){
             st = new StringTokenizer(br.readLine());
             int[] temp = new int[i+1];

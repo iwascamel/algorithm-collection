@@ -34,16 +34,16 @@ public class Main {
             }
         }
 
-        System.out.println(getLength(0,N-1));
+        System.out.println(getLength(0,N));
 
     }
 
     private static int getLength(int start, int end) {
         int len = 0;
 
-        for(int i=start;i<=end;i++){
+        for(int i=start;i<end;i++){
             if(input.charAt(i) == '('){
-                len += Integer.parseInt(String.valueOf(input.charAt(i-1))) * (getLength(i+1, map.get(i)-1))-1;
+                len += Integer.parseInt(String.valueOf(input.charAt(i-1))) * (getLength(i+1, map.get(i)))-1;
                 i = map.get(i);
             }else{
                 len++;

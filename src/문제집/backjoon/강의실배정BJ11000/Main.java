@@ -1,32 +1,22 @@
 package 문제집.backjoon.강의실배정BJ11000;
 
 /**
- * date: 22.06.26
+ * date: 22.07.12
  */
 
- import java.util.*;
- import java.io.*;
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.PriorityQueue;
+import java.util.StringTokenizer;
 
 public class Main {
     static int N;
-    static int[] arr;
+    static int[][] arr;
 
-    static class Time implements Comparable<Time>{
-        int start;
-        int end;
-        public Time(int start, int end) {
-            this.start = start;
-            this.end = end;
-        }
-        @Override
-        public int compareTo(Time o) {
-            if(this.start==o.start){
-                return Integer.compare(this.end, o.end);
-            }else{
-                return Integer.compare(this.start, o.start);
-            }
-        }
-    }
     public static void main(String[] args) throws NumberFormatException, IOException {
         System.setIn(new FileInputStream("./src/문제집/backjoon/강의실배정BJ11000/input.txt"));
 
@@ -36,25 +26,45 @@ public class Main {
 
         StringTokenizer st;
 
-        PriorityQueue<Time> pq = new PriorityQueue<>();
+        arr = new int[N][2];
         for(int i=0;i<N;i++){
             st = new StringTokenizer(br.readLine());
-            
             int start = Integer.parseInt(st.nextToken());
             int end = Integer.parseInt(st.nextToken());
 
-            pq.offer(new Time(start,end));
+            arr[i][0] = start;
+            arr[i][1] = end;
         }
-        
-        int end = 0;
-        int res = 0;
-        while(!pq.isEmpty()){
-            Time t = pq.poll();
-            if(t.start >= end){
-                res++;
-                end = t.end;
+        Comparator<int[]> comp = (o1, o2) -> {
+            int s1 = o1[0];
+            int s2 = o2[0];
+            return Integer.compare(s1,s2);
+        };
+
+        Arrays.sort(arr,comp);
+
+        PriorityQueue<Integer> pq = new PriorityQueue<>();
+
+        int max = 1 ;
+        pq.offer(arr[0][1]);
+        for(int i=1;i<N;i++){
+            int start = arr[i][0];
+            int end = arr[i][1];
+            while(!pq.isEmpty() && start >= pq.peek()){
+                pq.poll();
             }
+            pq.offer(end);
+            max = Math.max(max,pq.size());
         }
-        System.out.println(res);
+        System.out.println(max);
+    }
+
+    private static void print() {
+        for(int i=0;i<N;i++){
+            for(int j=0;j<2;j++){
+                System.out.print(arr[i][j] + " ");
+            }
+            System.out.println();
+        }
     }
 }

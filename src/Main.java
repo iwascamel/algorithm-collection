@@ -4,8 +4,11 @@ import java.util.regex.Pattern;
 
 public class Main{
     public static void main(String[] args) {
-        String c = "12a";
-
-        System.out.println(Pattern.matches("[\\w]",String.valueOf(c)));
+        for(int i=0;i<10;i++){
+            System.out.println(i);
+            if(i==3){
+                i=8;
+            }
+        }
     }
 }

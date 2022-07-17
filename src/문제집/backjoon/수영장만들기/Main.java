@@ -96,6 +96,7 @@ public class Main {
                 int nx = poll[0] + dx[d];
                 int ny = poll[1] + dy[d];
 
+                // 가장 자리에 가서 흘러내리거나, 주변의 값이 h보다 작아서 흘러내린다면
                 if (isOut(nx, ny) || map[nx][ny] < h) {
                     flag = false;
                     // break 가 아니라 continue 를 걸어줘야 한다.

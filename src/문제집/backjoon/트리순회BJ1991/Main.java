@@ -10,6 +10,7 @@ import java.util.StringTokenizer;
 
 /**
  * date: 22.07.18
+ * 참조할 만한 풀이 link: https://loosie.tistory.com/344
  */
 
 
@@ -53,37 +54,37 @@ public class Main {
         }
 
         Node startPoint = map.get('A');
-        printPre(startPoint);
+        preOrder(startPoint);
         System.out.println();
-        printMiddle(startPoint);
+        inOrder(startPoint);
         System.out.println();
-        printLast(startPoint);
+        postOrder(startPoint);
     }
 
-    private static void printLast(Node node) {
+    private static void postOrder(Node node) {
         if(node == null){
             return ;
         }
-        printLast(node.left);
-        printLast(node.right);
+        postOrder(node.left);
+        postOrder(node.right);
         System.out.print(node.val);
     }
 
-    private static void printMiddle(Node node) {
+    private static void inOrder(Node node) {
         if(node == null){
             return ;
         }
-        printMiddle(node.left);
+        inOrder(node.left);
         System.out.print(node.val);
-        printMiddle(node.right);
+        inOrder(node.right);
     }
 
-    private static void printPre(Node node) {
+    private static void preOrder(Node node) {
         if(node == null){
             return ;
         }
         System.out.print(node.val);
-        printPre(node.left);
-        printPre(node.right);
+        preOrder(node.left);
+        preOrder(node.right);
     }
 }

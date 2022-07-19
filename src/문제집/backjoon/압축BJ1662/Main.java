@@ -44,8 +44,6 @@ public class Main {
 
         for(int i=start;i<end;i++){
             if(input.charAt(i) == '('){
-                // 33(562(71(9)))
-                // 3 -> Character -> String -> Integer
                 len += Integer.parseInt(String.valueOf(input.charAt(i-1))) * (getLength(i+1, map.get(i)))-1;
                 i = map.get(i);
             }else{

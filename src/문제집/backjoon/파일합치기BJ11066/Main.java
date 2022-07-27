@@ -46,6 +46,8 @@ public class Main {
 
             // 0부터 시작하면 안되는 이유는 0부터 시작하면 dp[1][1], dp[2][2] 와 같이 dp[j][j]가 다 INF로 채워지기 때문
             for(int i=1;i<=N;i++){
+                printdp();
+                System.out.println("-------");
                 for(int j=1;j<=N-i;j++){
                     dp[j][j+i] = Integer.MAX_VALUE;
                     for(int k=j;k<j+i;k++){

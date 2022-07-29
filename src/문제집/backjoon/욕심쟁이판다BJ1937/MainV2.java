@@ -9,7 +9,8 @@ import java.util.StringTokenizer;
 
 /**
  * date: 22.07.29
- * memo: timeout
+ * 참조링크: https://steady-coding.tistory.com/39
+ * 부참조: https://velog.io/@hyeon930/BOJ-1937-%EC%9A%95%EC%8B%AC%EC%9F%81%EC%9D%B4-%ED%8C%90%EB%8B%A4-Java
  */
 
 public class MainV2 {
@@ -55,9 +56,9 @@ public class MainV2 {
         if(dp[x][y] != 0){
             return dp[x][y];
         }
-        if(isStop(x,y)){
-            return dp[x][y];
-        }
+//        if(isStop(x,y)){
+//            return dp[x][y];
+//        }
         dp[x][y] = 1;
         for(int d=0;d<4;d++){
             int nx = x + dx[d];
@@ -66,7 +67,7 @@ public class MainV2 {
             if(isOut(nx,ny) ||  map[nx][ny] <= map[x][y]){
                 continue;
             }
-            dp[x][y] = Math.max(dp[x][y], dp[x][y] + dfs(nx,ny));
+            dp[x][y] = Math.max(dp[x][y], dfs(nx,ny)+1);
         }
         return dp[x][y];
     }

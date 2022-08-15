@@ -38,7 +38,7 @@ public class Main {
             }
         }
         Set<Integer> keys = map.keySet();
-
+        System.out.println(map);
         arr = new int[keys.size()];
         aN = keys.size();
         int index = 0;
@@ -57,6 +57,7 @@ public class Main {
     private static void comb(int cnt, int start) {
         if(cnt == target){
             StringBuilder sb = new StringBuilder();
+            System.out.println(Arrays.toString(temp));
             out: for(int i=0;i<N;i++){
                 for(int j=0;j<target;j++){
                     if(i==temp[j] || (map.containsKey(temp[j]) && i == map.get(temp[j]))) continue out;
